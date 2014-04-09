@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="appcompat-v7-19.1.0">
+    <CLASSES>
+      <root url="jar:///mnt/92B242FAB242E279/projects/AndroidStudioProjects/CarFinder/app/build/exploded-aar/com.android.support/appcompat-v7/19.1.0/classes.jar!/" />
+      <root url="file:///mnt/92B242FAB242E279/projects/AndroidStudioProjects/CarFinder/app/build/exploded-aar/com.android.support/appcompat-v7/19.1.0/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">CarFinder</string>
+    <string name="title_activity_maps">Car Finder</string>
+    <string name="google_maps_key">AIzaSyAeXdKeaZeX7yzy6oO0o122yo5TPKi42Ew</string>
+    <string name="save_btn">save</string>
+    <string name="clear_btn">clear</string>
+    <string name="carLat">carLat</string>
+    <string name="carLng">carLng</string>
+    <string name="isSet">isSet</string>
+    <string name="title_activity_save">SaveActivity</string>
+    <string name="hello_world">Hello world!</string>
+
+</resources>
