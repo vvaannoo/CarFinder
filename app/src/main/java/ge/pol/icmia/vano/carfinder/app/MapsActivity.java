@@ -43,21 +43,52 @@ public class MapsActivity extends ActionBarActivity implements LocationListener{
 
 		setContentView(R.layout.activity_maps);
 		setUpMapIfNeeded();
-
+		System.err.println(">>>>>>>>>>>>>>>create");
 		//getActionBar().setDisplayHomeAsUpEnabled(true);
+	}
+	//30:F0:49:98:21:79:DE:32:6D:11:96:00:D3:E1:EE:13:FE:97:9A:3A
+
+
+	@Override
+	protected void onStart() {
+		super.onStart();
+		System.err.println(">>>>>>>>>>>>>>>start");
+	}
+
+	@Override
+	protected void onStop() {
+		super.onStop();
+		System.err.println(">>>>>>>>>>>>>>>stop");
+	}
+
+	@Override
+	protected void onRestart() {
+		super.onRestart();
+		System.err.println(">>>>>>>>>>>>>>>restart");
+	}
+
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+
+		System.err.println(">>>>>>>>>>>>>>>destroy");
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
+		System.err.println(">>>>>>>>>>>>>>>resume");
 		setUpMapIfNeeded();
+		if(locationManager != null && provider != null)
 		locationManager.requestLocationUpdates(provider, 400, 1, this);
 	}
 
 	@Override
 	protected void onPause(){
 		super.onPause();
-		locationManager.removeUpdates(this);
+		System.err.println(">>>>>>>>>>>>>>>pause");
+		if(locationManager != null)
+			locationManager.removeUpdates(this);
 	}
 
 	private void setUpMapIfNeeded() {
@@ -75,7 +106,9 @@ public class MapsActivity extends ActionBarActivity implements LocationListener{
 
 	private void setUpMap() {
 
-		checkGPSService();
+		if(!checkGPSService()){
+			return ;
+		}
 
 		boolean isSet = sharedPref.getBoolean(getString(R.string.isSet), false);
 
@@ -101,15 +134,17 @@ public class MapsActivity extends ActionBarActivity implements LocationListener{
 //		if(location != null){
 //			onLocationChanged(location);
 //		}
-		saveCurrentPosition();
+		//saveCurrentPosition();
 	}
 
-	private void checkGPSService(){
+	private boolean checkGPSService(){
 		locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 		if(!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)){
 			Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
 			startActivity(intent);
+			return false;
 		}
+		return true;
 	}
 
 	public void saveCurrentPosition(){

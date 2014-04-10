@@ -7,8 +7,8 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
-            <option value="/mnt/92B242FAB242E279/projects/AndroidStudioProjects/CarFinder" />
-            <option value="/mnt/92B242FAB242E279/projects/AndroidStudioProjects/CarFinder/app" />
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
           </set>
         </option>
       </GradleProjectSettings>
