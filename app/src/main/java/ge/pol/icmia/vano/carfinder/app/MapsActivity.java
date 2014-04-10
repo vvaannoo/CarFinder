@@ -116,13 +116,20 @@ public class MapsActivity extends ActionBarActivity implements LocationListener{
 
 		Criteria criteria = new Criteria();
 		provider = locationManager.getBestProvider(criteria, false);
-
+		if(provider == null){
+			System.err.println("provider is null");
+			return ;
+		}
 		toast.setText("provider: " + provider);
 		toast.show();
 		mMap.setMyLocationEnabled(true);
 //		MarkerOptions markerOptions = new MarkerOptions();
 		Location location = locationManager.getLastKnownLocation(provider);
-		LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+		LatLng latLng = null;
+		if(location != null) {
+			latLng = new LatLng(location.getLatitude(), location.getLongitude());
+		}
+		else latLng = new LatLng(0, 0);
 		mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 18.0f));
 
 //		markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.current));
